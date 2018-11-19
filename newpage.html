@@ -1,0 +1,259 @@
+<html>
+<title>Selected Image</title>
+<head>
+
+<style>
+		body{
+                background: url("photo-1489987707025-afc232f7ea0f.jpeg") no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+
+		/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+	align-items: center;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color:red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+			input[type=text] {
+				width: 100%;
+				padding: 12px 20px;
+				margin: 8px 0;
+				box-sizing: border-box;
+				border: 1px solid gray;
+				border-radius: 4px;
+			}
+			.center {
+				font-size: 20px;
+				
+				font-family: "Times New Roman", Times, serif;
+				margin: auto;
+				height: 500px;
+				width: 60%;
+				border: 2px solid black;
+				padding: 10px;
+				background-color: rgba(0,0,0,0.5);
+			}
+			#image1{
+				width: 300px;
+				height:300px;
+				margin-left:250px;
+				margin-top:-350px;
+				
+			
+			}
+			
+			.button {
+				border:none;
+				width:2px
+				color: white;
+				padding: 15px 32px;
+				margin-left: 450px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+			}
+			#button1 {
+				border:none;
+				width:2px
+				color: white;
+				padding: 15px 32px;
+				margin-left: 400px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+			}
+			#button2{
+				border:none;
+				width:2px
+				color: white;
+				padding: 15px 32px;
+				margin-left: 300px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+			}
+			.button1{ padding: 15px 40px; margin-top:100px;margin-left: 100px;border:none; display: inline-block;width:2px;background-color: #4CAF50;}
+			.button2 {padding: 15px 40px;margin-left: 100px;border:none;display: inline-block;width:2px;background-color: #008CBA;} /* Blue */
+			.button3 {padding: 15px 40px;margin-left: 100px;border:none;display: inline-block;width:2px;background-color: #f44336;} /* Red */ 
+			.button4 {padding: 15px 40px;margin-left: 100px;border:none;display: inline-block;width:2px;background-color: #e7e7e7;} /* Gray */ 
+			
+			#heading{
+				font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', 'sans-serif';
+				font-size: 90px;
+				margin-left: 500px;
+				color: rgb(96, 178, 233);
+			}
+
+			.buttona{
+				height: 50px;
+				width: 100px;
+				float:left;
+				font-size: 15px;
+			}
+
+			div{
+				font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', 'sans-serif';
+                font-size: 40px;
+			}
+			p{
+				font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', 'sans-serif';
+                font-size: 20px;
+			}
+</style>
+</head>
+<body>
+<div id="heading">Customize</div>
+<div>
+<div class="center">
+	
+	<button class="button1" onclick="store2('Green')">Green</button>
+	<button class="button" name="small" type="submit" value="S" onclick="store1('S')">S</button><br><br>
+	<button class=" button2" onclick="store2('Blue')">Blue</button>
+	<button  class="button" name="medium" type="submit" value="M" onclick="store1('M')">M</button><br><br>
+	<button class="button3" onclick="store2('Red')">Red</button>
+	<button  class="button" name="Large" type="submit" value="L" onclick="store1('L')">L</button><br><br>
+	<button class="button4" onclick="store2('White')">White</button>	
+    <button  class="button" name="Extra Large" type="submit" value="XL" onclick="store1('XL')">XL</button><br><br>
+	<br><br>
+	
+	<img src="" align="center" id="image1" alt="shirt">
+	<script>
+            function store1(sizec){
+                sessionStorage.setItem("sizec",sizec);
+            }
+			function store2(colorc){
+                sessionStorage.setItem("colorc",colorc);
+            }
+        </script>
+	<script>
+			var x=document.getElementById("image1");
+			var y=sessionStorage.getItem("imgname");
+			x.src=y;
+	</script> 
+</div>
+
+<button class="button" id="button1">Add to Cart</button>
+<!-- Trigger/Open The Modal -->
+<button class="button" id="button2">Size Chart</button>
+
+<!-- The Modal -->
+<div id="myModal1" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    Product Details:<br>
+	<p id="1"></p>
+	<p id="2"></p>
+	<a href="payment.html"><button class=" buttona" id="inbutton1">PROCEED</button></a>
+	 <span class="close"><button class=" buttona" id="inbutton2">MODIFY</button></span>
+  </div>
+
+</div>
+
+<div id="myModal2" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img src="size.jpeg" width="600px" align="center" alt="size chart">
+  </div>
+
+</div>
+
+<script>
+  s=sessionStorage.getItem("sizec");
+  c=sessionStorage.getItem("colorc");
+  document.getElementById("1").innerHTML="Size:"+s.toString();
+  document.getElementById("2").innerHTML="Color:"+c.toString();
+  
+</script>
+<script>
+// Get the modal
+
+var modal1 = document.getElementById('myModal1');
+var modal2 = document.getElementById('myModal2');
+
+// Get the button that opens the modal
+
+var btn1 = document.getElementById("button1");
+var btn2 = document.getElementById("button2");
+
+// Get the <span> element that closes the modal
+var span1 = document.getElementsByClassName("close")[0];
+var span2 = document.getElementsByClassName("close")[2];
+var span3=	document.getElementsByClassName("close")[1];
+// When the user clicks the button, open the modal 
+btn1.onclick = function() {
+    modal1.style.display = "block";
+}
+btn2.onclick = function() {
+    modal2.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span1.onclick = function() {
+    modal1.style.display = "none";
+}
+
+span2.onclick = function(){
+    modal2.style.display = "none";
+}
+
+span3.onclick = function(){
+	modal1.style.display="none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal2) {
+        modal2.style.display = "none";
+    }
+	else if (event.target == modal1) {
+        modal1.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
